@@ -40,12 +40,11 @@
             background: linear-gradient(135deg, #06173a 0%, #0a2a5e 55%, #0d3d82 100%);
             position: relative; overflow: hidden;
         }
-        /* repeating gear + hexagon pattern, slowly drifting */
+        /* repeating "TSK" pattern (static, does not move) */
         .hero::before {
             content: ""; position: absolute; inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='white' stroke-opacity='.10' stroke-width='1.5'%3E%3Ccircle cx='40' cy='40' r='17' stroke-width='6' stroke-dasharray='4.5 4.5'/%3E%3Ccircle cx='40' cy='40' r='12'/%3E%3Ccircle cx='40' cy='40' r='4'/%3E%3Cpath d='M120 94l16 9v18l-16 9-16-9v-18z'/%3E%3Cpath d='M120 102l9 5v10l-9 5-9-5v-10z'/%3E%3Cpath d='M120 20v14M113 27h14M40 120v14M33 127h14'/%3E%3C/g%3E%3C/svg%3E");
-            background-size: 160px 160px;
-            animation: drift 70s linear infinite;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='130' viewBox='0 0 220 130'%3E%3Cg fill='white' fill-opacity='.08' font-family='Arial,Helvetica,sans-serif' font-weight='800' font-size='42' letter-spacing='6'%3E%3Ctext x='14' y='48'%3ETSK%3C/text%3E%3Ctext x='124' y='113'%3ETSK%3C/text%3E%3C/g%3E%3C/svg%3E");
+            background-size: 220px 130px;
         }
         /* soft light and bottom fade (white / navy only) */
         .hero::after {
@@ -54,7 +53,6 @@
                 radial-gradient(ellipse at 50% 35%, rgba(255,255,255,.14), transparent 60%),
                 linear-gradient(to bottom, transparent 65%, rgba(6,23,58,.7));
         }
-        @keyframes drift { to { background-position: 160px 160px; } }
         .hero > * { position: relative; z-index: 1; }
 
         .logo-box {
@@ -196,7 +194,6 @@
         .reveal.show { opacity: 1; transform: none; }
 
         @media (prefers-reduced-motion: reduce) {
-            .hero::before { animation: none; }
             .reveal { opacity: 1; transform: none; transition: none; }
         }
         @media (max-width: 600px) {
@@ -401,7 +398,7 @@
                 note: "Working width applies to machines with vertical torch units and one tool per plate. Other sizes on request."
             },
             {
-                brand: "",
+                brand: "Fiber Laser",
                 title: "Laser Cutting Machine",
                 spec: "Mild steel · Stainless steel · Aluminium",
                 desc: "Fiber laser cutting for clean, high-quality edges that reduce or remove secondary finishing.",
@@ -423,7 +420,7 @@
                 ]
             },
             {
-                brand: "",
+                brand: "Water Jet",
                 title: "Water Jet Cutting Machine",
                 spec: "Cold cutting – no heat-affected zone",
                 desc: "Cold-cutting technology for metal, stone, glass and composites, with no thermal distortion.",
