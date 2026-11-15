@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TSK Equipment and Machinery Trading LLC | Industrial Machinery, Nigeria</title>
-    <meta name="description" content="TSK Equipment and Machinery Trading LLC, Nigeria. Plasma, laser and water jet cutting machines, welding machinery and spare parts.">
+    <title>TSK Equipment and Machinery Trading LLC | Industrial Machinery, UAE</title>
+    <meta name="description" content="TSK Equipment and Machinery Trading LLC, UAE. Plasma, laser and water jet cutting machines, welding machinery and spare parts.">
     <style>
         :root {
             --navy: #0a1f44;
@@ -32,7 +32,7 @@
         }
         nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
-        /* ---------- HERO (small moving TSK pattern, no orange) ---------- */
+        /* ---------- HERO ---------- */
         .hero {
             min-height: 78vh;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -221,10 +221,10 @@
             <img src="logo.jpg" alt="TSK Equipment and Machinery Trading LLC Logo">
         </div>
         <h1>TSK Equipment and Machinery Trading LLC</h1>
-        <p class="tag">Your trusted partner for high-quality industrial machinery and spare parts in Nigeria.</p>
+        <p class="tag">Your trusted partner for high-quality industrial machinery and spare parts in the UAE.</p>
         <div class="btns">
             <a href="#products" class="btn btn-primary">View Our Products</a>
-            <a href="tel:+971505043071" class="btn btn-outline">Call Us Now</a>
+            <a href="tel:+971581252891" class="btn btn-outline">Call Us Now</a>
         </div>
     </header>
 
@@ -235,14 +235,13 @@
                 <div class="info-card">
                     <div class="icon">📍</div>
                     <h3>Office Address</h3>
-                    <!-- Add the full street address, city and state in Nigeria here -->
-                    <p>Nigeria</p>
+                    <p>Al Mahatta, Al Qasimia<br>Sharjah, United Arab Emirates</p>
                 </div>
                 <div class="info-card">
                     <div class="icon">📞</div>
                     <h3>Mobile</h3>
-                    <p><a href="tel:+971505043071">+971 50 504 3071</a><br>
-                       <a href="tel:+971505366164">+971 50 536 6164</a></p>
+                    <p><a href="tel:+971581252891">+971 58 125 2891</a><br>
+                       <a href="tel:+971581252871">+971 58 125 2871</a></p>
                 </div>
                 <div class="info-card">
                     <div class="icon">✉️</div>
@@ -311,7 +310,7 @@
         &copy; 2025 TSK Equipment and Machinery Trading LLC. All Rights Reserved.
     </footer>
 
-    <a class="wa" href="https://wa.me/971505043071" target="_blank" rel="noopener">💬 WhatsApp</a>
+    <a class="wa" href="https://wa.me/971581252891" target="_blank" rel="noopener">💬 WhatsApp</a>
 
     <!-- LEARN MORE POP-UP -->
     <dialog id="detailDlg">
@@ -347,9 +346,11 @@
     </dialog>
 
     <script>
+        // ============ COMPANY CONTACT (change numbers here only) ============
+        const WA_NUMBER = "971581252891";       // main number used for WhatsApp, calls and all inquiries
+        const MAIL_TO = "tsktrading2025@gmail.com";
+
         // ============ PRODUCT LIST (edit text here) ============
-        // Each card is one category. Categories with "variants" (Plasma, Welding)
-        // show their separate machines inside Learn More.
         const PRODUCTS = [
             {
                 title: "Plasma Cutting Machines",
@@ -623,12 +624,12 @@
         }
         document.getElementById('sendWa').addEventListener('click', () => {
             if (!document.getElementById('enqForm').reportValidity()) return;
-            window.open("https://wa.me/971505043071?text=" + encodeURIComponent(buildMessage()), "_blank");
+            window.open("https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(buildMessage()), "_blank");
         });
         document.getElementById('sendMail').addEventListener('click', () => {
             if (!document.getElementById('enqForm').reportValidity()) return;
             const subject = "Inquiry: " + document.getElementById('fProduct').value;
-            window.location.href = "mailto:tsktrading2025@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(buildMessage());
+            window.location.href = "mailto:" + MAIL_TO + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(buildMessage());
         });
 
         // ============ FADE-IN ON SCROLL ============
