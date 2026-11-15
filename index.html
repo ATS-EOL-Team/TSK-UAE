@@ -40,11 +40,12 @@
             background: linear-gradient(135deg, #06173a 0%, #0a2a5e 55%, #0d3d82 100%);
             position: relative; overflow: hidden;
         }
-        /* repeating "TSK" pattern (static, does not move) */
+        /* small repeating "TSK" pattern, slowly moving */
         .hero::before {
             content: ""; position: absolute; inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='130' viewBox='0 0 220 130'%3E%3Cg fill='white' fill-opacity='.08' font-family='Arial,Helvetica,sans-serif' font-weight='800' font-size='42' letter-spacing='6'%3E%3Ctext x='14' y='48'%3ETSK%3C/text%3E%3Ctext x='124' y='113'%3ETSK%3C/text%3E%3C/g%3E%3C/svg%3E");
-            background-size: 220px 130px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='80' viewBox='0 0 130 80'%3E%3Cg fill='white' fill-opacity='.10' font-family='Arial,Helvetica,sans-serif' font-weight='800' font-size='24' letter-spacing='4'%3E%3Ctext x='4' y='30'%3ETSK%3C/text%3E%3Ctext x='68' y='70'%3ETSK%3C/text%3E%3C/g%3E%3C/svg%3E");
+            background-size: 130px 80px;
+            animation: drift 40s linear infinite;
         }
         /* soft light and bottom fade (white / navy only) */
         .hero::after {
@@ -53,6 +54,7 @@
                 radial-gradient(ellipse at 50% 35%, rgba(255,255,255,.14), transparent 60%),
                 linear-gradient(to bottom, transparent 65%, rgba(6,23,58,.7));
         }
+        @keyframes drift { to { background-position: 130px 80px; } }
         .hero > * { position: relative; z-index: 1; }
 
         .logo-box {
@@ -194,6 +196,7 @@
         .reveal.show { opacity: 1; transform: none; }
 
         @media (prefers-reduced-motion: reduce) {
+            .hero::before { animation: none; }
             .reveal { opacity: 1; transform: none; transition: none; }
         }
         @media (max-width: 600px) {
@@ -377,7 +380,7 @@
                 title: "Plasma Cutting Machine – MULTITHERM PRO",
                 spec: "Track gauge 3100 – 6000 mm",
                 desc: "Industry 4.0 ready gantry cutting machine for plasma and oxyfuel, with a rigid beam on LM guides for stable, reliable cutting.",
-                bg: "url('DrillingandPlasmaCuttingMachine.jpg')",
+                bg: "url('3-multitherm-pro-2.jpg')",
                 highlights: [
                     "Fast positioning at 24 m/min with 0.04 g acceleration to reduce cycle time",
                     "Digital servo AC drives with precision gearboxes on X and Y axes",
@@ -464,7 +467,7 @@
                 title: "Engine Driven Welders",
                 spec: "20 A – 600 A · Petrol & Diesel",
                 desc: "Silenced engine-driven welders for site, pipeline and workshop use. Weld and run auxiliary power from one machine.",
-                bg: "url('MosaEngineWelder.jpg'), linear-gradient(135deg, #0a1f44, #1565c0)",
+                bg: "url('weldingmachinenew.png'), linear-gradient(135deg, #0a1f44, #1565c0)",
                 highlights: [
                     "Stick, TIG, MIG/MAG and flux-cored welding on multi-process models",
                     "Auxiliary single-phase and three-phase power for tools while welding on most models",
