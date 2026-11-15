@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TSK Equipments and Machinery Trading | Industrial Machinery, Sharjah UAE</title>
-    <meta name="description" content="TSK Equipments and Machinery Trading, Sharjah. Plasma, laser and water jet cutting machines, drilling and welding machinery, and spare parts.">
+    <meta name="description" content="TSK Equipments and Machinery Trading, Sharjah. Plasma, laser and water jet cutting machines, welding machines and engine driven welders.">
     <style>
         :root {
             --navy: #0a1f44;
+            --deep: #06173a;
             --blue: #1565c0;
             --accent: #ff7a00;
             --light: #f4f7fb;
@@ -31,42 +32,47 @@
         }
         nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
-        /* ---------- HERO ---------- */
+        /* ---------- HERO (logo-style pattern background, no orange) ---------- */
         .hero {
             min-height: 78vh;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             text-align: center; color: #fff; padding: 50px 20px;
-            background:
-                linear-gradient(135deg, rgba(10,31,68,.93), rgba(21,101,192,.80)),
-                repeating-linear-gradient(45deg, #0a1f44 0 20px, #0d2a5c 20px 40px);
+            background: linear-gradient(135deg, #06173a 0%, #0a2a5e 55%, #0d3d82 100%);
             position: relative; overflow: hidden;
         }
-        .hero::before, .hero::after {
-            content: ""; position: absolute; border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,122,0,.35), transparent 70%);
-            animation: float 8s ease-in-out infinite;
+        /* repeating gear + hexagon pattern, slowly drifting */
+        .hero::before {
+            content: ""; position: absolute; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='white' stroke-opacity='.10' stroke-width='1.5'%3E%3Ccircle cx='40' cy='40' r='17' stroke-width='6' stroke-dasharray='4.5 4.5'/%3E%3Ccircle cx='40' cy='40' r='12'/%3E%3Ccircle cx='40' cy='40' r='4'/%3E%3Cpath d='M120 94l16 9v18l-16 9-16-9v-18z'/%3E%3Cpath d='M120 102l9 5v10l-9 5-9-5v-10z'/%3E%3Cpath d='M120 20v14M113 27h14M40 120v14M33 127h14'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 160px 160px;
+            animation: drift 70s linear infinite;
         }
-        .hero::before { width: 420px; height: 420px; top: -120px; right: -100px; }
-        .hero::after  { width: 320px; height: 320px; bottom: -100px; left: -80px; animation-delay: 3s; }
-        @keyframes float { 50% { transform: translateY(30px) scale(1.1); } }
+        /* soft light and bottom fade (white / navy only) */
+        .hero::after {
+            content: ""; position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse at 50% 35%, rgba(255,255,255,.14), transparent 60%),
+                linear-gradient(to bottom, transparent 65%, rgba(6,23,58,.7));
+        }
+        @keyframes drift { to { background-position: 160px 160px; } }
+        .hero > * { position: relative; z-index: 1; }
 
         .logo-box {
             background: #fff; padding: 14px 26px; border-radius: 14px;
             box-shadow: 0 10px 30px rgba(0,0,0,.4);
-            margin-bottom: 28px; position: relative; z-index: 1;
+            margin-bottom: 28px;
         }
         .logo-box img { height: 110px; width: auto; max-width: 100%; display: block; }
-        .hero h1 { font-size: clamp(28px, 5vw, 52px); letter-spacing: 1px; position: relative; z-index: 1; }
-        .hero h1 span { color: var(--accent); }
-        .hero p.tag { font-size: clamp(16px, 2.2vw, 21px); max-width: 700px; margin: 16px 0 30px; opacity: .92; position: relative; z-index: 1; }
-        .btns { position: relative; z-index: 1; display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+        .hero h1 { font-size: clamp(28px, 5vw, 52px); letter-spacing: 1px; color: #fff; text-shadow: 0 3px 14px rgba(0,0,0,.35); }
+        .hero p.tag { font-size: clamp(16px, 2.2vw, 21px); max-width: 700px; margin: 16px 0 30px; opacity: .92; }
+        .btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
         .btn {
             display: inline-block; padding: 14px 32px; border-radius: 40px;
-            text-decoration: none; font-weight: 700; transition: .3s;
+            text-decoration: none; font-weight: 700; transition: .3s; cursor: pointer; border: 0; font-size: 16px; font-family: inherit;
         }
         .btn-primary { background: var(--accent); color: #fff; }
         .btn-primary:hover { background: #e06a00; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,.3); }
-        .btn-outline { border: 2px solid #fff; color: #fff; }
+        .btn-outline { border: 2px solid #fff; color: #fff; background: transparent; }
         .btn-outline:hover { background: #fff; color: var(--navy); transform: translateY(-3px); }
 
         /* ---------- GENERIC SECTION ---------- */
@@ -103,41 +109,81 @@
         .why div { background: #fff; padding: 26px; border-radius: 14px; box-shadow: 0 4px 14px rgba(0,0,0,.08); }
         .why h3 { color: var(--navy); margin-bottom: 8px; }
 
-        /* ---------- PRODUCTS (image as background) ---------- */
+        /* ---------- PRODUCTS ---------- */
         #products { background: #fff; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; }
         .card {
-            position: relative; min-height: 340px; border-radius: 16px; overflow: hidden;
+            position: relative; min-height: 470px; border-radius: 16px; overflow: hidden;
             color: #fff; display: flex; align-items: flex-end;
             background-color: var(--navy); background-size: cover; background-position: center;
-            box-shadow: 0 8px 24px rgba(0,0,0,.2); transition: .4s;
+            box-shadow: 0 8px 24px rgba(0,0,0,.2); transition: transform .4s, box-shadow .4s;
         }
         .card::before {
             content: ""; position: absolute; inset: 0;
-            background: linear-gradient(to top, rgba(10,31,68,.95) 25%, rgba(10,31,68,.35) 100%);
-            transition: .4s;
+            background: linear-gradient(to top, rgba(6,23,58,.97) 40%, rgba(6,23,58,.55) 75%, rgba(6,23,58,.25) 100%);
         }
-        .card:hover { transform: translateY(-8px) scale(1.02); }
-        .card:hover::before { background: linear-gradient(to top, rgba(255,122,0,.9) 15%, rgba(10,31,68,.5) 100%); }
-        .card .content { position: relative; padding: 26px; }
-        .card h3 { font-size: 22px; margin-bottom: 8px; }
-        .card p { font-size: 15px; opacity: .95; }
-        .c1 { background-image: url('plasmacuttingmachine.jpg'); }
-        .c2 { background-image: url('WaterJetCuttingMachine.jpg'); }
-        .c3 { background-image: url('DrillingandPlasmaCuttingMachine.jpg'); }
-        .c4 { background-image: url('LaserCuttingMachine.jpg'); }
-        .c5 { background-image: url('WeldingMachinery.jpg'); }
-        .c6 { background-image: linear-gradient(135deg, #0a1f44, #1565c0); }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 16px 34px rgba(10,31,68,.35); }
+        .card .content { position: relative; padding: 26px; width: 100%; }
+        .brand-chip {
+            display: inline-block; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+            background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.35);
+            padding: 2px 10px; border-radius: 20px; margin-bottom: 10px;
+        }
+        .card h3 { font-size: 22px; margin-bottom: 6px; line-height: 1.25; }
+        .card .spec { color: #ffa733; font-weight: 700; font-size: 17px; margin-bottom: 8px; }
+        .card p { font-size: 15px; opacity: .95; margin-bottom: 18px; }
+        .card .actions { display: flex; gap: 10px; }
+        .card .actions button { flex: 1; padding: 12px 10px; font-size: 15px; border-radius: 40px; font-weight: 700; cursor: pointer; font-family: inherit; transition: .3s; }
+        .b-learn { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.8); }
+        .b-learn:hover { background: #fff; color: var(--navy); }
+        .b-inq { background: #2f55d4; color: #fff; border: 2px solid #2f55d4; }
+        .b-inq:hover { background: #1f3fb0; border-color: #1f3fb0; }
+
+        /* ---------- DIALOGS ---------- */
+        dialog {
+            border: 0; border-radius: 16px; padding: 0; width: calc(100% - 24px); max-width: 780px;
+            max-height: 90vh; margin: auto; color: var(--text); box-shadow: 0 20px 60px rgba(0,0,0,.45);
+        }
+        dialog::backdrop { background: rgba(6,20,46,.72); backdrop-filter: blur(3px); }
+        .dlg-in { padding: 30px 28px 26px; position: relative; }
+        .x {
+            position: absolute; top: 10px; right: 14px; border: 0; background: none;
+            font-size: 34px; line-height: 1; cursor: pointer; color: #5a6877;
+        }
+        .x:hover { color: var(--accent); }
+        .dlg-in h3 { color: var(--navy); font-size: 25px; padding-right: 30px; }
+        .dlg-in .spec { color: #e06a00; font-weight: 700; margin: 4px 0 14px; }
+        .dlg-in h4 { color: var(--navy); margin: 18px 0 8px; font-size: 17px; }
+        .dlg-in ul { padding-left: 20px; }
+        .dlg-in li { margin-bottom: 6px; }
+        .dlg-in table { width: 100%; border-collapse: collapse; font-size: 15px; }
+        .dlg-in td { padding: 9px 10px; border-bottom: 1px solid #e3e9f1; vertical-align: top; }
+        .dlg-in td:first-child { font-weight: 700; color: var(--navy); width: 32%; background: var(--light); }
+        .dlg-in .note { font-size: 13px; color: #6b7785; margin-top: 12px; }
+        .dlg-actions { margin-top: 22px; display: flex; gap: 12px; flex-wrap: wrap; }
+        .dlg-actions .btn { padding: 12px 26px; }
+        .btn-blue { background: #2f55d4; color: #fff; }
+        .btn-blue:hover { background: #1f3fb0; }
+        .btn-green { background: #25d366; color: #fff; }
+        .btn-green:hover { background: #1db955; }
+        .btn-grey { background: #e8edf4; color: var(--navy); }
+        .btn-grey:hover { background: #d6deea; }
+        form label { display: block; font-weight: 600; margin: 12px 0 4px; color: var(--navy); font-size: 14px; }
+        form input, form textarea {
+            width: 100%; padding: 11px 12px; border: 1px solid #c9d3e0; border-radius: 8px;
+            font: inherit; background: #fff;
+        }
+        form input:focus, form textarea:focus { outline: 2px solid #2f55d4; border-color: transparent; }
+        form input[readonly] { background: var(--light); }
+        .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
         /* ---------- CTA ---------- */
         .cta { background: linear-gradient(135deg, var(--navy), var(--blue)); color: #fff; text-align: center; }
         .cta h2 { font-size: 34px; margin-bottom: 12px; }
         .cta p { margin-bottom: 26px; opacity: .9; }
 
-        /* ---------- FOOTER ---------- */
         footer { background: #06142e; color: #cfd8e6; text-align: center; padding: 26px 15px; font-size: 14px; }
 
-        /* ---------- WHATSAPP FLOAT ---------- */
         .wa {
             position: fixed; right: 20px; bottom: 20px; z-index: 200;
             background: #25d366; color: #fff; text-decoration: none;
@@ -146,14 +192,20 @@
         }
         .wa:hover { transform: scale(1.08); }
 
-        /* ---------- FADE-IN ---------- */
-        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s, transform .8s; }
         .reveal.show { opacity: 1; transform: none; }
 
+        @media (prefers-reduced-motion: reduce) {
+            .hero::before { animation: none; }
+            .reveal { opacity: 1; transform: none; transition: none; }
+        }
         @media (max-width: 600px) {
             nav a { padding: 12px 14px; font-size: 14px; }
             section { padding: 55px 16px; }
             .logo-box img { height: 80px; }
+            .row2 { grid-template-columns: 1fr; }
+            .dlg-in { padding: 26px 18px 20px; }
+            .card { min-height: 480px; }
         }
     </style>
 </head>
@@ -171,7 +223,7 @@
         <div class="logo-box">
             <img src="logo.jpg" alt="TSK Equipments and Machinery Trading Logo">
         </div>
-        <h1>TSK <span>Equipments</span> and Machinery Trading</h1>
+        <h1>TSK Equipments and Machinery Trading</h1>
         <p class="tag">Your trusted partner for high-quality industrial machinery and spare parts in the UAE.</p>
         <div class="btns">
             <a href="#products" class="btn btn-primary">View Our Products</a>
@@ -217,7 +269,7 @@
             </p>
             <div class="stats reveal">
                 <div class="stat"><strong>20+</strong>Years of Experience</div>
-                <div class="stat"><strong>5+</strong>Machinery Categories</div>
+                <div class="stat"><strong>6</strong>Machinery Categories</div>
                 <div class="stat"><strong>24/7</strong>Customer Support</div>
             </div>
             <div class="why reveal">
@@ -237,61 +289,23 @@
         </div>
     </section>
 
-    <!-- 4. OUR PRODUCTS (images used as backgrounds) -->
+    <!-- 4. OUR PRODUCTS (cards are generated from the list in the script below) -->
     <section id="products">
         <div class="container">
             <div class="title reveal">
                 <h2>Our Products &amp; Services</h2>
                 <div class="line"></div>
-                <p>Top-quality machinery for a wide range of industrial applications.</p>
+                <p>Top-quality machinery for a wide range of industrial applications. Click Learn More for details or Inquiry to request a quotation.</p>
             </div>
-            <div class="grid">
-                <div class="card c1 reveal">
-                    <div class="content">
-                        <h3>Plasma Cutting Machines</h3>
-                        <p>High-speed CNC plasma cutting for steel, stainless steel and aluminium plate with clean, precise edges.</p>
-                    </div>
-                </div>
-                <div class="card c2 reveal">
-                    <div class="content">
-                        <h3>Water Jet Cutting Machines</h3>
-                        <p>Cold-cutting technology for metal, stone, glass and composites with no heat-affected zone.</p>
-                    </div>
-                </div>
-                <div class="card c3 reveal">
-                    <div class="content">
-                        <h3>Drilling &amp; Plasma Cutting Machines</h3>
-                        <p>Combined drilling and cutting systems for structural steel, plates and fabrication work.</p>
-                    </div>
-                </div>
-                <div class="card c4 reveal">
-                    <div class="content">
-                        <h3>Laser Cutting Machines</h3>
-                        <p>Fiber laser cutting for fast, accurate and detailed sheet metal processing.</p>
-                    </div>
-                </div>
-                <div class="card c5 reveal">
-                    <div class="content">
-                        <h3>Welding Machinery</h3>
-                        <p>MIG, TIG and arc welding equipment built for heavy-duty industrial use.</p>
-                    </div>
-                </div>
-                <div class="card c6 reveal">
-                    <div class="content">
-                        <h3>Spare Parts &amp; Consumables</h3>
-                        <p>Nozzles, electrodes, torches, lenses and other parts to keep your machines running.</p>
-                    </div>
-                </div>
-            </div>
+            <div class="grid" id="productGrid"></div>
         </div>
     </section>
 
-    <!-- CALL TO ACTION -->
     <section class="cta">
         <div class="container reveal">
             <h2>Need a Quote or Technical Advice?</h2>
             <p>Contact our team today and tell us your requirement.</p>
-            <a class="btn btn-primary" href="mailto:tsktrading2025@gmail.com?subject=Enquiry%20from%20Website">Send Enquiry</a>
+            <button class="btn btn-primary" id="generalInquiry">Send Enquiry</button>
         </div>
     </section>
 
@@ -301,13 +315,264 @@
 
     <a class="wa" href="https://wa.me/971505043071" target="_blank" rel="noopener">💬 WhatsApp</a>
 
+    <!-- LEARN MORE POP-UP -->
+    <dialog id="detailDlg">
+        <div class="dlg-in">
+            <button class="x" data-close aria-label="Close">&times;</button>
+            <div id="detailBody"></div>
+        </div>
+    </dialog>
+
+    <!-- INQUIRY POP-UP -->
+    <dialog id="enqDlg">
+        <div class="dlg-in">
+            <button class="x" data-close aria-label="Close">&times;</button>
+            <h3>Send an Inquiry</h3>
+            <p class="spec">We reply as soon as possible</p>
+            <form id="enqForm" onsubmit="return false">
+                <label for="fProduct">Product</label>
+                <input id="fProduct" readonly>
+                <div class="row2">
+                    <div><label for="fName">Your name *</label><input id="fName" required></div>
+                    <div><label for="fPhone">Phone / WhatsApp</label><input id="fPhone" type="tel"></div>
+                </div>
+                <label for="fEmail">Email</label>
+                <input id="fEmail" type="email">
+                <label for="fMsg">Your requirement</label>
+                <textarea id="fMsg" rows="4" placeholder="Machine size, material and thickness, quantity, delivery location..."></textarea>
+                <div class="dlg-actions">
+                    <button type="button" class="btn btn-green" id="sendWa">Send on WhatsApp</button>
+                    <button type="button" class="btn btn-blue" id="sendMail">Send by Email</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
     <script>
-        // Smooth fade-in when scrolling
-        const items = document.querySelectorAll('.reveal');
+        // ============ PRODUCT LIST (edit text here) ============
+        const PRODUCTS = [
+            {
+                brand: "Messer",
+                title: "Plasma Cutting Machine – ELEMENT 400",
+                spec: "Cutting width 1600 – 4100 mm",
+                desc: "Flexible CNC plate processing machine for plasma and oxyfuel cutting, with high-speed lifters and optional bevel units.",
+                bg: "url('plasmacuttingmachine.jpg')",
+                highlights: [
+                    "Precision plasma cutting of mild steel, stainless steel and aluminium (non-ferrous up to 150 mm)",
+                    "Oxyfuel cutting of thick carbon steel plate, material up to 300 mm",
+                    "Up to six torch stations (maximum two plasma stations)",
+                    "Optional plasma bevel units (Bevel-R / Bevel-S) with ±45° bevel angles for weld preparation",
+                    "Optional marking: ink-jet, pin marker or plasma marker; laser pointer or camera for plate alignment",
+                    "Windows-based CNC control with remote diagnostics; nesting and production software available",
+                    "Safety options: light curtains, fume-extraction cutting tables"
+                ],
+                specs: [
+                    ["Cutting width", "1600 mm to 4100 mm"],
+                    ["Cutting length", "Up to 47,000 mm"],
+                    ["Max. material thickness", "Up to 300 mm"],
+                    ["Machine accuracy", "Below 0.1 mm accuracy and repeatability"],
+                    ["Positioning speed", "24 m/min (plasma and oxyfuel)"],
+                    ["Cutting processes", "Plasma, oxyfuel; laser and bevel options"]
+                ]
+            },
+            {
+                brand: "Messer",
+                title: "Plasma Cutting Machine – MULTITHERM PRO",
+                spec: "Track gauge 3100 – 6000 mm",
+                desc: "Industry 4.0 ready gantry cutting machine for plasma and oxyfuel, with a rigid beam on LM guides for stable, reliable cutting.",
+                bg: "url('DrillingandPlasmaCuttingMachine.jpg')",
+                highlights: [
+                    "Fast positioning at 24 m/min with 0.04 g acceleration to reduce cycle time",
+                    "Digital servo AC drives with precision gearboxes on X and Y axes",
+                    "Up to six tool stations, with up to two plasma straight-cutting stations",
+                    "Oxyfuel cutting of carbon steel up to 300 mm; plasma up to 150 mm on non-ferrous material",
+                    "Optional Bevel-R plasma bevel unit, manual bevels and pipe cutting attachment (round pipes and square tubes)",
+                    "Automatic gas regulation (optional) removes manual gas setting",
+                    "Reliable height control for longer nozzle life and quality cuts"
+                ],
+                specs: [
+                    ["Track gauge", "3100 / 3600 / 4000 / 5000 / 6000 mm"],
+                    ["Working width", "2000 / 2500 / 3000 / 4000 / 5000 mm"],
+                    ["Overall width", "4430 mm to 7330 mm"],
+                    ["Overall height", "2360 mm"],
+                    ["Positioning speed", "24 m/min, 0.04 g acceleration"],
+                    ["Software", "Nesting and IoT software available (optional)"]
+                ],
+                note: "Working width applies to machines with vertical torch units and one tool per plate. Other sizes on request."
+            },
+            {
+                brand: "",
+                title: "Laser Cutting Machine",
+                spec: "Mild steel · Stainless steel · Aluminium",
+                desc: "Fiber laser cutting for clean, high-quality edges that reduce or remove secondary finishing.",
+                bg: "url('LaserCuttingMachine.jpg')",
+                highlights: [
+                    "Precision laser cutting of mild steel, stainless steel and aluminium",
+                    "Clean cut edges significantly reduce secondary operations",
+                    "Suitable for cutting long plates",
+                    "Choice of fiber laser sources (IPG / MaxPhotonics) on request",
+                    "Optional laser bevel head with ±45° angles for I, V, Y, X and K weld profiles",
+                    "Nesting and work-preparation software available"
+                ],
+                specs: [
+                    ["Materials", "Mild steel, stainless steel, aluminium"],
+                    ["Laser source", "IPG / MaxPhotonics (on request)"],
+                    ["Positioning speed", "Up to 50 m/min (laser and bevel configurations)"],
+                    ["Bevel cutting", "Optional, ±45°"],
+                    ["Power and bed size", "Selected to your requirement"]
+                ]
+            },
+            {
+                brand: "",
+                title: "Water Jet Cutting Machine",
+                spec: "Cold cutting – no heat-affected zone",
+                desc: "Cold-cutting technology for metal, stone, glass and composites, with no thermal distortion.",
+                bg: "url('WaterJetCuttingMachine.jpg')",
+                highlights: [
+                    "Cold cutting with no heat-affected zone and no thermal distortion",
+                    "Cuts metals, stone, glass and composite materials",
+                    "Accurate contour cutting of complex shapes",
+                    "Table size and pump capacity chosen to suit your work"
+                ],
+                specs: [
+                    ["Cutting method", "Cold cutting (water jet)"],
+                    ["Materials", "Metal, stone, glass, composites"],
+                    ["Configuration", "Tailored to your requirement – contact us"]
+                ]
+            },
+            {
+                brand: "Kemppi",
+                title: "Welding Machines – MIG/MAG, TIG & MMA",
+                spec: "MIG/MAG · TIG · MMA · Gouging",
+                desc: "Professional welding equipment from portable stick machines to heavy-duty industrial MIG/MAG systems, with guns, torches and accessories.",
+                bg: "url('WeldingMachinery.jpg')",
+                highlights: [
+                    "Portable machines for site work up to industrial systems for shipyards, offshore and pipelines",
+                    "Pulse and multi-process MIG/MAG for thin sheet to thick plate",
+                    "SuperSnake distance wire feeder gives extended reach",
+                    "ArcFeed lets existing MMA or generator power sources run productive MIG/MAG welding",
+                    "Welding software (WiseRoot, WiseFusion, WiseThin) for root passes, thin sheet and out-of-position welding",
+                    "Remote controls, transport units, gun and torch spares, equipment validation tools"
+                ],
+                specs: [
+                    ["MIG/MAG", "MinarcMig Evo 170/200 A · Kempact RA 180–320 A · FastMig M 320–520 A · FastMig X 350/450 A · FitWeld Evo 300 · Kempact Pulse 3000"],
+                    ["TIG", "MinarcTig Evo 200 A · MasterTig MLS 300/400 A · MasterTig MLS ACDC 230/300 A · MasterTig ACDC 3500W · MasterTig LT 250"],
+                    ["MMA (stick)", "Minarc 150 Classic · Minarc Evo 180 · Minarc 220 · Master MLS 250/350 A · Master S 400/500 A"],
+                    ["Gouging", "KempGouge ARC 800 – 800 A at 50 % duty"],
+                    ["Guns and torches", "MIG/MAG guns 3–8 m · TIG torches 4–16 m · consumables"]
+                ]
+            },
+            {
+                brand: "MOSA",
+                title: "Engine Driven Welders",
+                spec: "20 A – 600 A · Petrol & Diesel",
+                desc: "Silenced engine-driven welders for site, pipeline and workshop use. Weld and run auxiliary power from one machine.",
+                bg: "url('MosaEngineWelder.jpg'), linear-gradient(135deg, #0a1f44, #1565c0)",
+                highlights: [
+                    "Stick, TIG, MIG/MAG and flux-cored welding on multi-process models",
+                    "Auxiliary single-phase and three-phase power for tools while welding on most models",
+                    "Power Optimizer prevents engine overload; auto idle saves fuel on compact models",
+                    "Voltage reduction device, engine protection and ground fault interrupter on many models",
+                    "Dual-operator models: DSP 2x400 PS and TS 2x280 EVO MULTI4",
+                    "Arc gouging socket and base-current circuit for vertical-down pipe welding on selected models",
+                    "Made in Italy, ISO 9001 certified manufacturing"
+                ],
+                specs: [
+                    ["Compact welders", "New Magic Weld, Magic Weld 200, TS 200 series, TS 250 KD/EL – 30 A to 250 A"],
+                    ["Power welders", "CS 230, CS 350, TS 300 to TS 600 – up to 600 A, diesel"],
+                    ["Digital DSP", "DSP 400 YSX, 500 PS, 600 PS – stick, TIG, MIG/MAG; DSP 2x400 PS dual operator"],
+                    ["TS EVO", "TS 300 / 400 / 600 EVO – stick and scratch-start TIG"],
+                    ["TS EVO MULTI4", "TS 400 / 600 EVO MULTI4 and TS 2x280 EVO MULTI4 – multi-process"],
+                    ["Engines", "Honda, Yanmar, Kohler, Perkins, Deutz, Kubota"]
+                ]
+            }
+        ];
+
+        // ============ BUILD CARDS ============
+        const grid = document.getElementById('productGrid');
+        grid.innerHTML = PRODUCTS.map((p, i) => `
+            <article class="card reveal" style="background-image:${p.bg}">
+                <div class="content">
+                    ${p.brand ? `<span class="brand-chip">${p.brand}</span>` : ''}
+                    <h3>${p.title}</h3>
+                    <div class="spec">${p.spec}</div>
+                    <p>${p.desc}</p>
+                    <div class="actions">
+                        <button class="b-learn" data-learn="${i}">Learn More</button>
+                        <button class="b-inq" data-inq="${i}">Inquiry</button>
+                    </div>
+                </div>
+            </article>`).join('');
+
+        // ============ POP-UPS ============
+        const detailDlg = document.getElementById('detailDlg');
+        const enqDlg = document.getElementById('enqDlg');
+        const detailBody = document.getElementById('detailBody');
+
+        function openDetail(i) {
+            const p = PRODUCTS[i];
+            detailBody.innerHTML = `
+                <h3>${p.title}</h3>
+                <div class="spec">${p.spec}</div>
+                <p>${p.desc}</p>
+                <h4>Key features</h4>
+                <ul>${p.highlights.map(h => `<li>${h}</li>`).join('')}</ul>
+                <h4>Specifications</h4>
+                <table>${p.specs.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')}</table>
+                ${p.note ? `<p class="note">${p.note}</p>` : ''}
+                <p class="note">Specifications are for guidance and may change. Contact us to confirm the exact model and configuration.</p>
+                <div class="dlg-actions">
+                    <button class="btn btn-blue" data-inq="${i}">Inquiry</button>
+                    <button class="btn btn-grey" data-close>Close</button>
+                </div>`;
+            detailDlg.showModal();
+        }
+
+        function openInquiry(name) {
+            document.getElementById('fProduct').value = name;
+            document.getElementById('fMsg').value = '';
+            enqDlg.showModal();
+        }
+
+        document.addEventListener('click', e => {
+            const learn = e.target.closest('[data-learn]');
+            const inq = e.target.closest('[data-inq]');
+            const close = e.target.closest('[data-close]');
+            if (learn) { openDetail(+learn.dataset.learn); return; }
+            if (inq) { detailDlg.close(); openInquiry(PRODUCTS[+inq.dataset.inq].title); return; }
+            if (close) { close.closest('dialog').close(); return; }
+            if (e.target === detailDlg || e.target === enqDlg) e.target.close();
+        });
+        document.getElementById('generalInquiry').addEventListener('click', () => openInquiry('General enquiry'));
+
+        // ============ SEND INQUIRY ============
+        function buildMessage() {
+            const g = id => document.getElementById(id).value.trim();
+            return [
+                "Hello TSK Equipments,",
+                "I would like a quotation / more details for: " + g('fProduct'),
+                "",
+                "Name: " + g('fName'),
+                "Phone: " + g('fPhone'),
+                "Email: " + g('fEmail'),
+                "Requirement: " + g('fMsg')
+            ].join("\n");
+        }
+        document.getElementById('sendWa').addEventListener('click', () => {
+            if (!document.getElementById('enqForm').reportValidity()) return;
+            window.open("https://wa.me/971505043071?text=" + encodeURIComponent(buildMessage()), "_blank");
+        });
+        document.getElementById('sendMail').addEventListener('click', () => {
+            if (!document.getElementById('enqForm').reportValidity()) return;
+            const subject = "Inquiry: " + document.getElementById('fProduct').value;
+            window.location.href = "mailto:tsktrading2025@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(buildMessage());
+        });
+
+        // ============ FADE-IN ON SCROLL ============
         const io = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
-        }, { threshold: 0.15 });
-        items.forEach(el => io.observe(el));
+            entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('show'); io.unobserve(en.target); } });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     </script>
 </body>
 </html>
