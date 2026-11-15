@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TSK Equipments and Machinery Trading | Industrial Machinery, Sharjah UAE</title>
-    <meta name="description" content="TSK Equipments and Machinery Trading, Sharjah. Plasma, laser and water jet cutting machines, welding machines and engine driven welders.">
+    <title>TSK Equipments and Machinery Trading LLC | Industrial Machinery, Nigeria</title>
+    <meta name="description" content="TSK Equipment and Machinery Trading LLC, Nigeria. Plasma, laser and water jet cutting machines, welding machinery and spare parts.">
     <style>
         :root {
             --navy: #0a1f44;
@@ -32,7 +32,7 @@
         }
         nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
-        /* ---------- HERO (logo-style pattern background, no orange) ---------- */
+        /* ---------- HERO (small moving TSK pattern, no orange) ---------- */
         .hero {
             min-height: 78vh;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -40,14 +40,12 @@
             background: linear-gradient(135deg, #06173a 0%, #0a2a5e 55%, #0d3d82 100%);
             position: relative; overflow: hidden;
         }
-        /* small repeating "TSK" pattern, slowly moving */
         .hero::before {
             content: ""; position: absolute; inset: 0;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='80' viewBox='0 0 130 80'%3E%3Cg fill='white' fill-opacity='.10' font-family='Arial,Helvetica,sans-serif' font-weight='800' font-size='24' letter-spacing='4'%3E%3Ctext x='4' y='30'%3ETSK%3C/text%3E%3Ctext x='68' y='70'%3ETSK%3C/text%3E%3C/g%3E%3C/svg%3E");
             background-size: 130px 80px;
             animation: drift 40s linear infinite;
         }
-        /* soft light and bottom fade (white / navy only) */
         .hero::after {
             content: ""; position: absolute; inset: 0;
             background:
@@ -63,7 +61,7 @@
             margin-bottom: 28px;
         }
         .logo-box img { height: 110px; width: auto; max-width: 100%; display: block; }
-        .hero h1 { font-size: clamp(28px, 5vw, 52px); letter-spacing: 1px; color: #fff; text-shadow: 0 3px 14px rgba(0,0,0,.35); }
+        .hero h1 { font-size: clamp(26px, 5vw, 48px); letter-spacing: 1px; color: #fff; text-shadow: 0 3px 14px rgba(0,0,0,.35); max-width: 1000px; }
         .hero p.tag { font-size: clamp(16px, 2.2vw, 21px); max-width: 700px; margin: 16px 0 30px; opacity: .92; }
         .btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
         .btn {
@@ -113,7 +111,7 @@
         #products { background: #fff; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; }
         .card {
-            position: relative; min-height: 470px; border-radius: 16px; overflow: hidden;
+            position: relative; min-height: 440px; border-radius: 16px; overflow: hidden;
             color: #fff; display: flex; align-items: flex-end;
             background-color: var(--navy); background-size: cover; background-position: center;
             box-shadow: 0 8px 24px rgba(0,0,0,.2); transition: transform .4s, box-shadow .4s;
@@ -124,13 +122,8 @@
         }
         .card:hover { transform: translateY(-8px); box-shadow: 0 16px 34px rgba(10,31,68,.35); }
         .card .content { position: relative; padding: 26px; width: 100%; }
-        .brand-chip {
-            display: inline-block; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
-            background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.35);
-            padding: 2px 10px; border-radius: 20px; margin-bottom: 10px;
-        }
-        .card h3 { font-size: 22px; margin-bottom: 6px; line-height: 1.25; }
-        .card .spec { color: #ffa733; font-weight: 700; font-size: 17px; margin-bottom: 8px; }
+        .card h3 { font-size: 23px; margin-bottom: 6px; line-height: 1.25; }
+        .card .spec { color: #ffa733; font-weight: 700; font-size: 16px; margin-bottom: 8px; }
         .card p { font-size: 15px; opacity: .95; margin-bottom: 18px; }
         .card .actions { display: flex; gap: 10px; }
         .card .actions button { flex: 1; padding: 12px 10px; font-size: 15px; border-radius: 40px; font-weight: 700; cursor: pointer; font-family: inherit; transition: .3s; }
@@ -141,7 +134,7 @@
 
         /* ---------- DIALOGS ---------- */
         dialog {
-            border: 0; border-radius: 16px; padding: 0; width: calc(100% - 24px); max-width: 780px;
+            border: 0; border-radius: 16px; padding: 0; width: calc(100% - 24px); max-width: 800px;
             max-height: 90vh; margin: auto; color: var(--text); box-shadow: 0 20px 60px rgba(0,0,0,.45);
         }
         dialog::backdrop { background: rgba(6,20,46,.72); backdrop-filter: blur(3px); }
@@ -160,7 +153,11 @@
         .dlg-in td { padding: 9px 10px; border-bottom: 1px solid #e3e9f1; vertical-align: top; }
         .dlg-in td:first-child { font-weight: 700; color: var(--navy); width: 32%; background: var(--light); }
         .dlg-in .note { font-size: 13px; color: #6b7785; margin-top: 12px; }
-        .dlg-actions { margin-top: 22px; display: flex; gap: 12px; flex-wrap: wrap; }
+        .variant { border: 1px solid #dbe3ee; border-radius: 14px; padding: 18px; margin-top: 20px; background: #fbfcfe; }
+        .variant img { width: 100%; max-height: 260px; object-fit: cover; border-radius: 10px; margin-bottom: 12px; display: block; }
+        .variant h4.vname { margin-top: 0; font-size: 20px; }
+        .maker { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .5px; background: #e8edf4; color: var(--navy); padding: 2px 10px; border-radius: 20px; margin-left: 6px; vertical-align: middle; }
+        .dlg-actions { margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap; }
         .dlg-actions .btn { padding: 12px 26px; }
         .btn-blue { background: #2f55d4; color: #fff; }
         .btn-blue:hover { background: #1f3fb0; }
@@ -205,7 +202,7 @@
             .logo-box img { height: 80px; }
             .row2 { grid-template-columns: 1fr; }
             .dlg-in { padding: 26px 18px 20px; }
-            .card { min-height: 480px; }
+            .card { min-height: 450px; }
         }
     </style>
 </head>
@@ -221,10 +218,10 @@
     <!-- 1. LOGO + COMPANY NAME -->
     <header class="hero" id="home">
         <div class="logo-box">
-            <img src="logo.jpg" alt="TSK Equipments and Machinery Trading Logo">
+            <img src="logo.jpg" alt="TSK Equipments and Machinery Trading LLC Logo">
         </div>
-        <h1>TSK Equipments and Machinery Trading</h1>
-        <p class="tag">Your trusted partner for high-quality industrial machinery and spare parts in the UAE.</p>
+        <h1>TSK Equipments and Machinery Trading LLC</h1>
+        <p class="tag">Your trusted partner for high-quality industrial machinery and spare parts in Nigeria.</p>
         <div class="btns">
             <a href="#products" class="btn btn-primary">View Our Products</a>
             <a href="tel:+971505043071" class="btn btn-outline">Call Us Now</a>
@@ -238,7 +235,8 @@
                 <div class="info-card">
                     <div class="icon">📍</div>
                     <h3>Office Address</h3>
-                    <p>Al Mahatta, Al Qasimia<br>Sharjah, United Arab Emirates</p>
+                    <!-- Add the full street address, city and state in Nigeria here -->
+                    <p>Nigeria</p>
                 </div>
                 <div class="info-card">
                     <div class="icon">📞</div>
@@ -263,7 +261,7 @@
                 <div class="line"></div>
             </div>
             <p class="about-text reveal">
-                TSK Equipments and Machinery Trading is committed to delivering cutting-edge industrial solutions.
+                TSK Equipments and Machinery Trading LLC is committed to delivering cutting-edge industrial solutions.
                 We specialize in premium quality machinery and spare parts, supporting fabrication workshops,
                 factories and contractors with reliable equipment and expert advice.
             </p>
@@ -289,7 +287,7 @@
         </div>
     </section>
 
-    <!-- 4. OUR PRODUCTS (cards are generated from the list in the script below) -->
+    <!-- 4. OUR PRODUCTS (cards are built from the list in the script below) -->
     <section id="products">
         <div class="container">
             <div class="title reveal">
@@ -310,7 +308,7 @@
     </section>
 
     <footer>
-        &copy; 2025 TSK Equipments and Machinery Trading. All Rights Reserved.
+        &copy; 2025 TSK Equipments and Machinery Trading LLC. All Rights Reserved.
     </footer>
 
     <a class="wa" href="https://wa.me/971505043071" target="_blank" rel="noopener">💬 WhatsApp</a>
@@ -350,61 +348,99 @@
 
     <script>
         // ============ PRODUCT LIST (edit text here) ============
+        // Each card is one category. Categories with "variants" (Plasma, Welding)
+        // show their separate machines inside Learn More.
         const PRODUCTS = [
             {
-                brand: "Messer",
-                title: "Plasma Cutting Machine – ELEMENT 400",
-                spec: "Cutting width 1600 – 4100 mm",
-                desc: "Flexible CNC plate processing machine for plasma and oxyfuel cutting, with high-speed lifters and optional bevel units.",
+                title: "Plasma Cutting Machines",
+                spec: "Plasma & oxyfuel cutting · up to 300 mm",
+                desc: "High-speed CNC plasma cutting for steel, stainless steel and aluminium plate with clean, precise edges.",
                 bg: "url('plasmacuttingmachine.jpg')",
-                highlights: [
-                    "Precision plasma cutting of mild steel, stainless steel and aluminium (non-ferrous up to 150 mm)",
-                    "Oxyfuel cutting of thick carbon steel plate, material up to 300 mm",
-                    "Up to six torch stations (maximum two plasma stations)",
-                    "Optional plasma bevel units (Bevel-R / Bevel-S) with ±45° bevel angles for weld preparation",
-                    "Optional marking: ink-jet, pin marker or plasma marker; laser pointer or camera for plate alignment",
-                    "Windows-based CNC control with remote diagnostics; nesting and production software available",
-                    "Safety options: light curtains, fume-extraction cutting tables"
-                ],
-                specs: [
-                    ["Cutting width", "1600 mm to 4100 mm"],
-                    ["Cutting length", "Up to 47,000 mm"],
-                    ["Max. material thickness", "Up to 300 mm"],
-                    ["Machine accuracy", "Below 0.1 mm accuracy and repeatability"],
-                    ["Positioning speed", "24 m/min (plasma and oxyfuel)"],
-                    ["Cutting processes", "Plasma, oxyfuel; laser and bevel options"]
+                intro: "We supply two plasma cutting machine models:",
+                variants: [
+                    {
+                        name: "ELEMENT 400", maker: "Messer", img: "plasmacuttingmachine.jpg",
+                        desc: "Flexible CNC plate processing machine for plasma and oxyfuel cutting, with high-speed lifters and optional bevel units.",
+                        highlights: [
+                            "Precision plasma cutting of mild steel, stainless steel and aluminium (non-ferrous up to 150 mm)",
+                            "Oxyfuel cutting of thick carbon steel plate, material up to 300 mm",
+                            "Up to six torch stations (maximum two plasma stations)",
+                            "Optional plasma bevel units (Bevel-R / Bevel-S) with ±45° bevel angles for weld preparation",
+                            "Optional marking: ink-jet, pin marker or plasma marker; laser pointer or camera for plate alignment",
+                            "Windows-based CNC control with remote diagnostics; nesting and production software available",
+                            "Safety options: light curtains, fume-extraction cutting tables"
+                        ],
+                        specs: [
+                            ["Cutting width", "1600 mm to 4100 mm"],
+                            ["Cutting length", "Up to 47,000 mm"],
+                            ["Max. material thickness", "Up to 300 mm"],
+                            ["Machine accuracy", "Below 0.1 mm accuracy and repeatability"],
+                            ["Positioning speed", "24 m/min (plasma and oxyfuel)"],
+                            ["Cutting processes", "Plasma, oxyfuel; laser and bevel options"]
+                        ]
+                    },
+                    {
+                        name: "MULTITHERM PRO", maker: "Messer", img: "3-multitherm-pro-2.jpg",
+                        desc: "Industry 4.0 ready gantry cutting machine for plasma and oxyfuel, with a rigid beam on LM guides for stable, reliable cutting.",
+                        highlights: [
+                            "Fast positioning at 24 m/min with 0.04 g acceleration to reduce cycle time",
+                            "Digital servo AC drives with precision gearboxes on X and Y axes",
+                            "Up to six tool stations, with up to two plasma straight-cutting stations",
+                            "Oxyfuel cutting of carbon steel up to 300 mm; plasma up to 150 mm on non-ferrous material",
+                            "Optional Bevel-R plasma bevel unit, manual bevels and pipe cutting attachment (round pipes and square tubes)",
+                            "Automatic gas regulation (optional) removes manual gas setting",
+                            "Reliable height control for longer nozzle life and quality cuts"
+                        ],
+                        specs: [
+                            ["Track gauge", "3100 / 3600 / 4000 / 5000 / 6000 mm"],
+                            ["Working width", "2000 / 2500 / 3000 / 4000 / 5000 mm"],
+                            ["Overall width", "4430 mm to 7330 mm"],
+                            ["Overall height", "2360 mm"],
+                            ["Positioning speed", "24 m/min, 0.04 g acceleration"],
+                            ["Software", "Nesting and IoT software available (optional)"]
+                        ],
+                        note: "Working width applies to machines with vertical torch units and one tool per plate. Other sizes on request."
+                    }
                 ]
             },
             {
-                brand: "Messer",
-                title: "Plasma Cutting Machine – MULTITHERM PRO",
-                spec: "Track gauge 3100 – 6000 mm",
-                desc: "Industry 4.0 ready gantry cutting machine for plasma and oxyfuel, with a rigid beam on LM guides for stable, reliable cutting.",
-                bg: "url('3-multitherm-pro-2.jpg')",
+                title: "Water Jet Cutting Machines",
+                spec: "Cold cutting – no heat-affected zone",
+                desc: "Cold-cutting technology for metal, stone, glass and composites with no heat-affected zone.",
+                bg: "url('WaterJetCuttingMachine.jpg')",
                 highlights: [
-                    "Fast positioning at 24 m/min with 0.04 g acceleration to reduce cycle time",
-                    "Digital servo AC drives with precision gearboxes on X and Y axes",
-                    "Up to six tool stations, with up to two plasma straight-cutting stations",
-                    "Oxyfuel cutting of carbon steel up to 300 mm; plasma up to 150 mm on non-ferrous material",
-                    "Optional Bevel-R plasma bevel unit, manual bevels and pipe cutting attachment (round pipes and square tubes)",
-                    "Automatic gas regulation (optional) removes manual gas setting",
-                    "Reliable height control for longer nozzle life and quality cuts"
+                    "Cold cutting with no heat-affected zone and no thermal distortion",
+                    "Cuts metals, stone, glass and composite materials",
+                    "Accurate contour cutting of complex shapes",
+                    "Table size and pump capacity chosen to suit your work"
                 ],
                 specs: [
-                    ["Track gauge", "3100 / 3600 / 4000 / 5000 / 6000 mm"],
-                    ["Working width", "2000 / 2500 / 3000 / 4000 / 5000 mm"],
-                    ["Overall width", "4430 mm to 7330 mm"],
-                    ["Overall height", "2360 mm"],
-                    ["Positioning speed", "24 m/min, 0.04 g acceleration"],
-                    ["Software", "Nesting and IoT software available (optional)"]
-                ],
-                note: "Working width applies to machines with vertical torch units and one tool per plate. Other sizes on request."
+                    ["Cutting method", "Cold cutting (water jet)"],
+                    ["Materials", "Metal, stone, glass, composites"],
+                    ["Configuration", "Tailored to your requirement – contact us"]
+                ]
             },
             {
-                brand: "Fiber Laser",
-                title: "Laser Cutting Machine",
+                title: "Drilling & Plasma Cutting Machines",
+                spec: "Drilling and cutting in one system",
+                desc: "Combined drilling and cutting systems for structural steel, plates and fabrication work.",
+                bg: "url('DrillingandPlasmaCuttingMachine.jpg')",
+                highlights: [
+                    "Drilling and plasma cutting on one machine for plate and structural steel work",
+                    "Plasma cutting of mild steel, stainless steel and aluminium",
+                    "Suited to fabrication workshops that need holes and profiles in the same setup",
+                    "Table size, drilling capacity and plasma power selected to your requirement"
+                ],
+                specs: [
+                    ["Operations", "Drilling and plasma cutting"],
+                    ["Materials", "Mild steel, stainless steel, aluminium"],
+                    ["Configuration", "Tailored to your requirement – contact us"]
+                ]
+            },
+            {
+                title: "Laser Cutting Machines",
                 spec: "Mild steel · Stainless steel · Aluminium",
-                desc: "Fiber laser cutting for clean, high-quality edges that reduce or remove secondary finishing.",
+                desc: "Fiber laser cutting for fast, accurate and detailed sheet metal processing.",
                 bg: "url('LaserCuttingMachine.jpg')",
                 highlights: [
                     "Precision laser cutting of mild steel, stainless steel and aluminium",
@@ -423,67 +459,73 @@
                 ]
             },
             {
-                brand: "Water Jet",
-                title: "Water Jet Cutting Machine",
-                spec: "Cold cutting – no heat-affected zone",
-                desc: "Cold-cutting technology for metal, stone, glass and composites, with no thermal distortion.",
-                bg: "url('WaterJetCuttingMachine.jpg')",
-                highlights: [
-                    "Cold cutting with no heat-affected zone and no thermal distortion",
-                    "Cuts metals, stone, glass and composite materials",
-                    "Accurate contour cutting of complex shapes",
-                    "Table size and pump capacity chosen to suit your work"
-                ],
-                specs: [
-                    ["Cutting method", "Cold cutting (water jet)"],
-                    ["Materials", "Metal, stone, glass, composites"],
-                    ["Configuration", "Tailored to your requirement – contact us"]
-                ]
-            },
-            {
-                brand: "Kemppi",
-                title: "Welding Machines – MIG/MAG, TIG & MMA",
-                spec: "MIG/MAG · TIG · MMA · Gouging",
-                desc: "Professional welding equipment from portable stick machines to heavy-duty industrial MIG/MAG systems, with guns, torches and accessories.",
+                title: "Welding Machinery",
+                spec: "MIG/MAG · TIG · MMA · Engine driven",
+                desc: "MIG, TIG and arc welding equipment built for heavy-duty industrial use, from portable machines to engine-driven welders.",
                 bg: "url('WeldingMachinery.jpg')",
-                highlights: [
-                    "Portable machines for site work up to industrial systems for shipyards, offshore and pipelines",
-                    "Pulse and multi-process MIG/MAG for thin sheet to thick plate",
-                    "SuperSnake distance wire feeder gives extended reach",
-                    "ArcFeed lets existing MMA or generator power sources run productive MIG/MAG welding",
-                    "Welding software (WiseRoot, WiseFusion, WiseThin) for root passes, thin sheet and out-of-position welding",
-                    "Remote controls, transport units, gun and torch spares, equipment validation tools"
-                ],
-                specs: [
-                    ["MIG/MAG", "MinarcMig Evo 170/200 A · Kempact RA 180–320 A · FastMig M 320–520 A · FastMig X 350/450 A · FitWeld Evo 300 · Kempact Pulse 3000"],
-                    ["TIG", "MinarcTig Evo 200 A · MasterTig MLS 300/400 A · MasterTig MLS ACDC 230/300 A · MasterTig ACDC 3500W · MasterTig LT 250"],
-                    ["MMA (stick)", "Minarc 150 Classic · Minarc Evo 180 · Minarc 220 · Master MLS 250/350 A · Master S 400/500 A"],
-                    ["Gouging", "KempGouge ARC 800 – 800 A at 50 % duty"],
-                    ["Guns and torches", "MIG/MAG guns 3–8 m · TIG torches 4–16 m · consumables"]
+                intro: "We supply two welding machinery ranges:",
+                variants: [
+                    {
+                        name: "MIG/MAG, TIG & MMA Welding Machines", maker: "Kemppi", img: "WeldingMachinery.jpg",
+                        desc: "Professional welding equipment from portable stick machines to heavy-duty industrial MIG/MAG systems, with guns, torches and accessories.",
+                        highlights: [
+                            "Portable machines for site work up to industrial systems for shipyards, offshore and pipelines",
+                            "Pulse and multi-process MIG/MAG for thin sheet to thick plate",
+                            "SuperSnake distance wire feeder gives extended reach",
+                            "ArcFeed lets existing MMA or generator power sources run productive MIG/MAG welding",
+                            "Welding software (WiseRoot, WiseFusion, WiseThin) for root passes, thin sheet and out-of-position welding",
+                            "Remote controls, transport units, gun and torch spares, equipment validation tools"
+                        ],
+                        specs: [
+                            ["MIG/MAG", "MinarcMig Evo 170/200 A · Kempact RA 180–320 A · FastMig M 320–520 A · FastMig X 350/450 A · FitWeld Evo 300 · Kempact Pulse 3000"],
+                            ["TIG", "MinarcTig Evo 200 A · MasterTig MLS 300/400 A · MasterTig MLS ACDC 230/300 A · MasterTig ACDC 3500W · MasterTig LT 250"],
+                            ["MMA (stick)", "Minarc 150 Classic · Minarc Evo 180 · Minarc 220 · Master MLS 250/350 A · Master S 400/500 A"],
+                            ["Gouging", "KempGouge ARC 800 – 800 A at 50 % duty"],
+                            ["Guns and torches", "MIG/MAG guns 3–8 m · TIG torches 4–16 m · consumables"]
+                        ]
+                    },
+                    {
+                        name: "Engine Driven Welders", maker: "MOSA", img: "weldingmachinenew.png",
+                        desc: "Silenced engine-driven welders for site, pipeline and workshop use. Weld and run auxiliary power from one machine.",
+                        highlights: [
+                            "Stick, TIG, MIG/MAG and flux-cored welding on multi-process models",
+                            "Auxiliary single-phase and three-phase power for tools while welding on most models",
+                            "Power Optimizer prevents engine overload; auto idle saves fuel on compact models",
+                            "Voltage reduction device, engine protection and ground fault interrupter on many models",
+                            "Dual-operator models: DSP 2x400 PS and TS 2x280 EVO MULTI4",
+                            "Arc gouging socket and base-current circuit for vertical-down pipe welding on selected models",
+                            "Made in Italy, ISO 9001 certified manufacturing"
+                        ],
+                        specs: [
+                            ["Welding current", "20 A to 600 A, petrol and diesel engines"],
+                            ["Compact welders", "New Magic Weld, Magic Weld 200, TS 200 series, TS 250 KD/EL – 30 A to 250 A"],
+                            ["Power welders", "CS 230, CS 350, TS 300 to TS 600 – up to 600 A, diesel"],
+                            ["Digital DSP", "DSP 400 YSX, 500 PS, 600 PS – stick, TIG, MIG/MAG; DSP 2x400 PS dual operator"],
+                            ["TS EVO", "TS 300 / 400 / 600 EVO – stick and scratch-start TIG"],
+                            ["TS EVO MULTI4", "TS 400 / 600 EVO MULTI4 and TS 2x280 EVO MULTI4 – multi-process"],
+                            ["Engines", "Honda, Yanmar, Kohler, Perkins, Deutz, Kubota"]
+                        ]
+                    }
                 ]
             },
             {
-                brand: "MOSA",
-                title: "Engine Driven Welders",
-                spec: "20 A – 600 A · Petrol & Diesel",
-                desc: "Silenced engine-driven welders for site, pipeline and workshop use. Weld and run auxiliary power from one machine.",
-                bg: "url('weldingmachinenew.png'), linear-gradient(135deg, #0a1f44, #1565c0)",
+                title: "Spare Parts & Consumables",
+                spec: "Nozzles · Contact tips · Electrodes · Liners",
+                desc: "Nozzles, electrodes, torches, lenses and other parts to keep your machines running.",
+                bg: "linear-gradient(135deg, #0a1f44, #1565c0)",
                 highlights: [
-                    "Stick, TIG, MIG/MAG and flux-cored welding on multi-process models",
-                    "Auxiliary single-phase and three-phase power for tools while welding on most models",
-                    "Power Optimizer prevents engine overload; auto idle saves fuel on compact models",
-                    "Voltage reduction device, engine protection and ground fault interrupter on many models",
-                    "Dual-operator models: DSP 2x400 PS and TS 2x280 EVO MULTI4",
-                    "Arc gouging socket and base-current circuit for vertical-down pipe welding on selected models",
-                    "Made in Italy, ISO 9001 certified manufacturing"
+                    "MIG/MAG gun parts: gas nozzles, contact tips, contact tip adapters, gas diffusers, insulating bushes",
+                    "Wire liners: steel spiral and low-friction Teflon liners for steel, stainless steel and aluminium wire",
+                    "TIG torch parts: gas nozzles, gas lenses, electrodes, tightening bushes, electrode shields",
+                    "Wire feed roll kits for steel, stainless steel, aluminium and cored wires",
+                    "Welding accessories: earth clamps, electrode holders, cable connectors, remote controls",
+                    "Parts for plasma, laser and water jet machines on request"
                 ],
                 specs: [
-                    ["Compact welders", "New Magic Weld, Magic Weld 200, TS 200 series, TS 250 KD/EL – 30 A to 250 A"],
-                    ["Power welders", "CS 230, CS 350, TS 300 to TS 600 – up to 600 A, diesel"],
-                    ["Digital DSP", "DSP 400 YSX, 500 PS, 600 PS – stick, TIG, MIG/MAG; DSP 2x400 PS dual operator"],
-                    ["TS EVO", "TS 300 / 400 / 600 EVO – stick and scratch-start TIG"],
-                    ["TS EVO MULTI4", "TS 400 / 600 EVO MULTI4 and TS 2x280 EVO MULTI4 – multi-process"],
-                    ["Engines", "Honda, Yanmar, Kohler, Perkins, Deutz, Kubota"]
+                    ["Contact tips", "M8 tips for 0.8–3.2 mm wire; M6 tips for 0.6–1.6 mm wire"],
+                    ["Wire liners", "For MIG/MAG guns of 3 m to 8 m"],
+                    ["Clamps and holders", "Earth clamps and electrode holders, 200 A to 600 A"],
+                    ["Other machines", "Consumables for cutting machines on request"]
                 ]
             }
         ];
@@ -493,7 +535,6 @@
         grid.innerHTML = PRODUCTS.map((p, i) => `
             <article class="card reveal" style="background-image:${p.bg}">
                 <div class="content">
-                    ${p.brand ? `<span class="brand-chip">${p.brand}</span>` : ''}
                     <h3>${p.title}</h3>
                     <div class="spec">${p.spec}</div>
                     <p>${p.desc}</p>
@@ -509,23 +550,38 @@
         const enqDlg = document.getElementById('enqDlg');
         const detailBody = document.getElementById('detailBody');
 
+        const list = a => `<ul>${a.map(h => `<li>${h}</li>`).join('')}</ul>`;
+        const table = a => `<table>${a.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')}</table>`;
+
         function openDetail(i) {
             const p = PRODUCTS[i];
-            detailBody.innerHTML = `
-                <h3>${p.title}</h3>
-                <div class="spec">${p.spec}</div>
-                <p>${p.desc}</p>
-                <h4>Key features</h4>
-                <ul>${p.highlights.map(h => `<li>${h}</li>`).join('')}</ul>
-                <h4>Specifications</h4>
-                <table>${p.specs.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')}</table>
-                ${p.note ? `<p class="note">${p.note}</p>` : ''}
-                <p class="note">Specifications are for guidance and may change. Contact us to confirm the exact model and configuration.</p>
-                <div class="dlg-actions">
-                    <button class="btn btn-blue" data-inq="${i}">Inquiry</button>
-                    <button class="btn btn-grey" data-close>Close</button>
-                </div>`;
+            let body = `<h3>${p.title}</h3><div class="spec">${p.spec}</div><p>${p.desc}</p>`;
+            if (p.variants) {
+                body += `<p>${p.intro}</p>`;
+                body += p.variants.map((v, j) => `
+                    <div class="variant">
+                        <img src="${v.img}" alt="${v.name}" onerror="this.style.display='none'">
+                        <h4 class="vname">${v.name} <span class="maker">${v.maker}</span></h4>
+                        <p>${v.desc}</p>
+                        <h4>Key features</h4>${list(v.highlights)}
+                        <h4>Specifications</h4>${table(v.specs)}
+                        ${v.note ? `<p class="note">${v.note}</p>` : ''}
+                        <div class="dlg-actions"><button class="btn btn-blue" data-inq="${i}" data-v="${j}">Inquiry for ${v.name}</button></div>
+                    </div>`).join('');
+                body += `<p class="note">Specifications are for guidance and may change. Contact us to confirm the exact model and configuration.</p>
+                         <div class="dlg-actions"><button class="btn btn-grey" data-close>Close</button></div>`;
+            } else {
+                body += `<h4>Key features</h4>${list(p.highlights)}
+                         <h4>Specifications</h4>${table(p.specs)}
+                         <p class="note">Specifications are for guidance and may change. Contact us to confirm the exact model and configuration.</p>
+                         <div class="dlg-actions">
+                            <button class="btn btn-blue" data-inq="${i}">Inquiry</button>
+                            <button class="btn btn-grey" data-close>Close</button>
+                         </div>`;
+            }
+            detailBody.innerHTML = body;
             detailDlg.showModal();
+            detailDlg.scrollTop = 0;
         }
 
         function openInquiry(name) {
@@ -539,7 +595,14 @@
             const inq = e.target.closest('[data-inq]');
             const close = e.target.closest('[data-close]');
             if (learn) { openDetail(+learn.dataset.learn); return; }
-            if (inq) { detailDlg.close(); openInquiry(PRODUCTS[+inq.dataset.inq].title); return; }
+            if (inq) {
+                const p = PRODUCTS[+inq.dataset.inq];
+                let name = p.title;
+                if (inq.dataset.v !== undefined) name += " – " + p.variants[+inq.dataset.v].name;
+                detailDlg.close();
+                openInquiry(name);
+                return;
+            }
             if (close) { close.closest('dialog').close(); return; }
             if (e.target === detailDlg || e.target === enqDlg) e.target.close();
         });
@@ -549,7 +612,7 @@
         function buildMessage() {
             const g = id => document.getElementById(id).value.trim();
             return [
-                "Hello TSK Equipments,",
+                "Hello TSK Equipments and Machinery Trading LLC,",
                 "I would like a quotation / more details for: " + g('fProduct'),
                 "",
                 "Name: " + g('fName'),
